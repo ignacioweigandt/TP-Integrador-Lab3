@@ -45,7 +45,7 @@ namespace TP_Integrador_Lab3
 
         public void CargarEmpleados(TreeView TvEmpleados)
         {
-            string query = "SELECT CODIGO, NOMBRE, APELLIDO, DIRECCION, CIUDAD, TELEFONO, FECHA_NAC FROM DATOS_PERSONALES";
+            string query = "SELECT * FROM [DATOS PERSONALES]";
             using (OleDbConnection connection = new OleDbConnection(cadenaConexion))
             {
                 using (OleDbCommand command = new OleDbCommand(query, connection))
@@ -61,7 +61,10 @@ namespace TP_Integrador_Lab3
 
                             // Agregar subnodos si es necesario
                             nodo.Nodes.Add("Código: " + reader["CODIGO"].ToString());
-                            nodo.Nodes.Add("Dirección: " + reader["DIRECCION"].ToString());
+                            nodo.Nodes.Add("Dirección: " + reader["DIRECCIÒN"].ToString());
+                            nodo.Nodes.Add("Ciudad: " + reader["CIUDAD"].ToString());
+                            nodo.Nodes.Add("Telefono: " + reader["TELEFONO"].ToString());
+                            nodo.Nodes.Add("Fecha: " + reader["FECHA_NACIMIENTO"].ToString());
                             // Agregar más nodos según tus necesidades
 
                             // Agregar el nodo al TreeView
